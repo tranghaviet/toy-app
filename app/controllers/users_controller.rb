@@ -13,12 +13,19 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+    	log_in @user
     	# to display the message on the first page after the redirect
       flash[:success] = "Welcome to toy app"
       redirect_to @user # ~ redirect_to user_url(@user)
     else
       render 'new'
     end
+  end
+
+  def update
+  end
+
+  def destroy
   end
 
   private
