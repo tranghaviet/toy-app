@@ -16,6 +16,11 @@ gem 'sqlite3'
 gem 'puma', '~> 3.0'
 # Use bcrypt to store password
 gem 'bcrypt',         '3.1.11'
+# Use faker to make sample data
+gem 'faker'
+# Use for pagination
+gem 'will_paginate',           '3.1.5'
+gem 'bootstrap-will_paginate', '1.0.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
