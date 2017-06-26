@@ -16,7 +16,7 @@ module SessionsHelper
     if (user_id = session[:user_id]) # tim trong session hien tai truoc
       @current_user ||= User.find_by(id: user_id)
     elsif (user_id = cookies.signed[:user_id]) # sau do tim trong cookie
-    	raise       # The tests still pass, so this branch is currently untested.
+    	# raise       # The tests still pass, so this branch is currently untested.
       user = User.find_by(id: user_id)
       if user && user.authenticated?(cookies[:remember_token])
         log_in user

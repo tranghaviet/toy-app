@@ -1,5 +1,13 @@
+# read more: http://www.justinweiss.com/articles/how-rails-sessions-work/
 class SessionsController < ApplicationController
   def new
+    # If we don't use ifelse statement
+    # Rails will automatic render template: 'sessions/new'
+    if logged_in?
+      redirect_to root_path
+    else
+      render template: 'sessions/new'
+    end
   end
 
   def create
@@ -13,7 +21,7 @@ class SessionsController < ApplicationController
       render 'new'
     end
   end
-  
+
   def destroy
     log_out if logged_in?
     redirect_to root_url
