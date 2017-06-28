@@ -1,5 +1,8 @@
 # Preview all emails at http://localhost:3000/rails/mailers/user_mailer
 class UserMailerPreview < ActionMailer::Preview
+
+  # Do moi method cho những account riêng không liên quan tới nhau nên ta dùng
+  # biến user thay vì instace @user
   
   # Preview this email at http://localhost:3000/rails/mailers/user_mailer/account_activation
   def account_activation
