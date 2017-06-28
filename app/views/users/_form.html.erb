@@ -1,7 +1,7 @@
 <!--form-for(@user) - Rails uses POST if @user.new_record? is true and PATCH if it is false-->
 <!--Rails fakes PATCH with a POST request in a hidden input field.-->
 <%= form_for(@user) do |f| %>
-    <%= render 'shared/error_messages', object: @user %>
+    <%= render 'shared/error_messages', object: f.object %>
 
     <%= f.label :name %>
     <%= f.text_field :name, class: 'form-control' %>

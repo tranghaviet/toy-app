@@ -18,6 +18,10 @@ gem 'puma', '~> 3.0'
 gem 'bcrypt',         '3.1.11'
 # Use faker to make sample data
 gem 'faker'
+# Use for upload images and resize images
+gem 'carrierwave',             '1.1.0'
+gem 'mini_magick',             '4.7.0'
+gem 'fog',                     '1.40.0'
 # Use for pagination
 gem 'will_paginate',           '3.1.5'
 gem 'bootstrap-will_paginate', '1.0.0'

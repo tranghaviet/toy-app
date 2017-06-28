@@ -15,7 +15,8 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
-    redirect_to root_path and return unless @user.activated?
+    # redirect_to root_path and return unless @user.activated?
+    @microposts = @user.microposts.paginate(page: params[:page])
   end
   
   def create
@@ -56,15 +57,6 @@ class UsersController < ApplicationController
     # khi khong co key user thi Rails bao error -> co the dung fetch()
     # trong key user chi cho phép name và email, pass va pass_confirm
     params.require(:user).permit(:name, :email, :password, :password_confirm)
-  end
-  
-  # Confirm a logged-in user
-  def logged_in_user
-    unless logged_in?
-      store_location
-      flash[:danger] = "Please log in"
-      redirect_to login_path
-    end
   end
 
   # Confirms the correct user

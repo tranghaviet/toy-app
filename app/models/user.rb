@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_many :microposts, dependent: :destroy
   attr_accessor :remember_token, :activation_token, :reset_token
   before_save :downcase_email
   before_create :create_activation_digest
@@ -81,6 +82,13 @@ class User < ApplicationRecord
   # Forgets a user.
   def forget
     update_attribute(:remember_digest, nil)
+  end
+
+  # Defines a proto-feed.
+  # See "Following users" for the full implementation.
+  def feed
+    # avoiding a serious security hole called SQL injection
+    Micropost.where("user_id = ?", id)
   end
   
   private
